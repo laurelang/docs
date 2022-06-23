@@ -1,0 +1,28 @@
+Use
+*---*
+`use` and `useso` are keywords within a [command]{Command}(/wiki/command) needed to link or embed native laurelang or external knowledge databases right in you laurelang code.
+*---*
+# use
+
+`use` is needed to link native laurelang code. It can include either single files or packages.
+
+```
+!use "my_file.le", "another_file.le".
+!use my_package.
+```
+
+Packages from standard path can be written according to `@/name` pattern. For example:
+
+```
+!use @/array.
+```
+
+# useso
+
+`useso` is needed to **use** a **s**hared **o**bject.
+
+For example:
+
+```
+!useso "@/array/array.so".
+```

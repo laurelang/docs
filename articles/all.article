@@ -1,0 +1,7 @@
+All articles
+*---*
+In alphabetic order
+*---*
+<ul>
+{% for (name, article) in get_articles() %}<li><a href="/wiki/{{article}}" title="{{name}}">{{name}}</a></li>{% endfor %}
+</ul>

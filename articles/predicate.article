@@ -1,0 +1,113 @@
+Predicate
+*---*
+Predicates in laurelang.
+*---*
+
+# Notation
+
+For each new predicate you must declare its header, containing information about the args universum your predicate operates on. Like this:
+
+```
+: ?predicate(int, int) -> char.
+```
+
+Predicates have name, arguments, response argument (optional) and body (optional).
+
+After header declaration you should declare predicate **variations**, there can be plenty of them.
+
+In predicate argument declaration you can give it a custom name, to later operate on it, or leave a image-specific pattern (value). For example: `0`, `[]`, `[h|t]`.
+Also you can set it to the predicate call, which response argument will be reffered as declared argument.
+
+Sometimes predicates may not require any body because predicate calls are allowed in argument declarations. That's awesome how we can implement subtraction predicate using addition one.
+
+```
+: ?-(int, int) -> int.
+?-(x + y, y) -> x.
+```
+
+The bodied version of this predicate may look like this:
+
+```
+?-(x, y) -> z {
+    y + z = x;
+}
+```
+
+Also we can rewrite body using `when` keyword, which substitutes braces:
+
+```
+?-(x, y) -> z when y + z = x;
+```
+
+When writing with `when` keyword `,` is used to split expression instead of a semicolon.
+
+Also predicates may be called differently:
+
+The standard notation for all predicate calls is:
+
+```
+predicate(arg1, arg2);
+```
+
+But when the infix arity (arity of predicate excluding response argument) equals to 2 infix notation may be applied:
+
+```
+arg1 predicate arg2;
+```
+
+When the infix arity of predicate equals to 1:
+
+```
+predicate of arg;
+```
+
+**All predicates have the same [priority]{Priority}(/wiki/priority) = 1**
+
+Examples:
+
+```
+1 + 1 = 2 -> +(1, 1) = 2;
+length of Arr = 3 -> length(Arr) = 3;
+```
+
+## Chains
+
+It's easy to combine predicates into readable chain with infix notations. Examples:
+
+```
+1 + 1 + 4 = x;
+// Important: all the predicate priorities are the same in laurelang,
+// so you may expect multiplication, for example, be automatically stated
+// before addition, but this won't work.
+// Predicates in chains are unrolled from the end.
+// Use parentheses to control it.
+(1 + 2) * 3 = y;
+```
+
+From server example:
+
+```
+event send path of event;
+```
+
+# Add doc
+
+Each predicate, as any other instance in laurelang, can obtain a small documentation.
+
+To add it, use docstring before the header. Example:
+
+```
+// Absolute value predicate
+// absolute of -5 = 5
+: ?absolute(int) -> int.
+?absolute(x) -> x when x __gte 0.
+?absolute(x) -> -x when x < 0.
+```
+
+# Useful tools
+
+<ul>
+<li>[Cut]{Cut}(/wiki/cut)</li>
+<li>[Implication]{Implication}(/wiki/implication)</li>
+<li>[Predicate Primitives]{Predicate Primitives}(/wiki/pred_primitives)</li>
+</ul>

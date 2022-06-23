@@ -1,0 +1,20 @@
+Backtracking
+*---*
+**Backtracking** - problem solving method based on enumeration of all possible solutions with the ability to backtrack on the search tree. Mainly used in solving constraint problem resolving with some finite universum.
+*---*
+You may be interested in [iterational algorithms]{Domain iteration}(/wiki/domain_iter).
+
+# Cut
+
+Main article - [Cut operator]{Cut operator}(/wiki/cut).
+
+Cut operator is used to forbid backtracking. It is written as ```!```
+
+Usage example:
+
+```
+?pred(x) -> 5 when x > 10, x cons 18, !.
+?pred(x) -> 42.
+
+y = pred(15) -> y = 5;
+```

@@ -1,0 +1,63 @@
+Hub
+*---*
+Welcome to laurelang documentation. Reading articles here requires some knownledge about the language, so it is highly recommended to firstly acquire it reading this [tutorial]{Short guide into Laurelang}(https://github.com/timoniq/laurelang/blob/main/docs/tutorial/index.md).
+<br>
+It definitely should be mentinioned that laurelang is quite exceptional from other programming languages because it belongs to logic paradigm.
+*---*
+
+<hr>
+
+```
+: ?factorial(int) -> int.
+
+?factorial(0) -> 1.
+?factorial(n) -> f {
+    n > 0;
+    f = n * factorial(n - 1);
+}
+```
+
+Good articles to start surfing.
+
+# Instance
+<ul>
+    <li>[Instance (basic)]{Instance}(/wiki/instance)</li>
+    <li>[Builtin Instances]{Builtin Instances}(/wiki/builtin_instances)</li>
+    <li>[Components]{Instance components}(/wiki/components)</li>
+    <li>[Iterating over domains]{Domain iteration}(/wiki/domain_iter)</li>
+</ul>
+
+# Predicates & Constraints
+
+<ul>
+    <li>[Predicate (basic)]{Predicate}(/wiki/predicate)</li>
+    <li>[Constraint]{Constraint}(/wiki/constraint)</li>
+</ul>
+
+# Common expressions
+
+<ul>
+    <li>[Quantifiers]{Quantifiers}(/wiki/quantifiers)</li>
+    <li>[Implication]{Implication}(/wiki/implication)</li>
+    <li>[Isolated Set]{Isolated Set}(/wiki/isolated_set)</li>
+    <li>[Cut]{Cut}(/wiki/cut)</li>
+    <li>[Use]{Use}(/wiki/use)</li>
+</ul>
+
+# Builtin packages
+
+<ul>
+    <li>[Test Suite (@/test)]{Test Suite}(/wiki/test_suite)</li>
+    <li>[Array (@/array)]{Array}(/wiki/array)
+</ul>
+
+# API
+
+<ul>
+    <li>[API reference]{API}(/wiki/api)</li>
+    <li>[Predicate Upload]{API}(/wiki/api/predicate_upload)</li>
+</ul>
+
+# Research articles
+
+Todo

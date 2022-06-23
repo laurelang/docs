@@ -1,0 +1,9 @@
+Implication
+*---*
+Implication in laurelang.
+*---*
+Implication is an indispensable logic operator. It's [priority]{Priority}(/wiki/priority) is 4.
+
+```
+y > 0 -> x = 5, !;
+```

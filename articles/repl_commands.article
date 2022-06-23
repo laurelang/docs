@@ -1,0 +1,73 @@
+REPL commands
+*---*
+REPL commands
+*---*
+# `.help`
+
+
+Shows available commands with description
+
+# `.consult {filenames}`
+
+Loads knownledge sets into current session.
+
+```
+?- .consult my_file.le my_package
+  my_file.le: consulted
+  my_package: consulted
+```
+
+# `.flags`
+
+Shows available [flags]{Flags}(/wiki/flags) for laurelang interpreter.
+
+# `.stack`
+
+Shows info about stack, prints instances in the global scope.
+
+# `.gc`
+
+Forces to run garbage collection.
+
+# `.doc {name}`
+
+Shows documentation of an instance with given name.
+
+```
+?- .doc absolute
+   Absolute value predicate
+   absolute of -5 = 5
+```
+
+# `.getinfo`
+
+Shows information about reasoning system.
+
+# `.ast {expression}`
+
+Shows ast of the given expression.
+
+```
+?- .ast a = b + 1 -> !
+imply [
+  call pred + [
+    var b
+    custom 1
+    var a
+  ]
+] for [
+  cut
+]
+```
+
+# `.lock {names}` / `.unlock {names}`
+
+Locks/unlocks instance with given name.
+
+# `.timeout {seconds}`
+
+Sets reasoning timeout in seconds.
+
+# `.quit`
+
+Quits REPL.

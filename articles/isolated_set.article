@@ -1,0 +1,26 @@
+Isolated set
+*---*
+Isolated set of expressions is a set which cannot bring a choicepoint outside of it. It may create an isolated tree inside of it, and after evaluation yield control back to the previous context.
+*---*
+
+# Usage
+
+Isolated set is essential when you want to get rid of excessive solutions with inner generalised queries.
+
+```
+&{jealous(x, y) -> jealous(y, x)}, jealous(x, y)
+```
+
+In example above we just want to check that all of the `jealous` relations are mutual. Without the isolated set usage an excessive choicepoint may be created.
+
+When you want to use the same logic variable names in the same scope isolated sets may be useful too.
+
+```
+{p > 0; p < 3}, p > 5
+```
+
+This will succeed.
+
+# Scope
+
+Isolated set creates its own scope extension for its queries (smart scope) which means that all the instances from the main scope can be accessed (even if isolated set is nested. Its just an extension for the current scope). Instances created in isolated set can't be accessed from the outside. Constraints or instantiations applied in isolated sets self-destroy right after the search on set has been completed.

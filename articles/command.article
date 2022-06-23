@@ -1,0 +1,30 @@
+Command
+*---*
+Command in laurelang is a special operation which helps to consult knowledge bases, link shared objects and dynamically set flags which are needed for advanced [weight search](/wiki/ws) etc.
+*---*
+Command starts with `!` sign and then operation of two types may be declared.
+
+# Command set
+
+Within the command dflag can be set.
+
+```
+!someflag=123
+```
+
+(You can check current dflag states with `.getinfo` [REPL command](/wiki/repl_commands)).
+
+# Command Use
+
+[Read detailed article about Command Use](/wiki/use).
+
+
+**Command Use** has two keywords:
+
+## `use`
+
+Links (consults) other laurelang source.
+
+## `useso`
+
+Links a shared file (embedded package).

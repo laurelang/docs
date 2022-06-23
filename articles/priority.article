@@ -1,0 +1,62 @@
+Priority
+*---*
+Operation priorities in laurelang
+*---*
+<table style="max-width: 500px">
+    <tr>
+        <th>
+        Priority
+        </th>
+        <th>
+        Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+        0
+        </td>
+        <td>
+        Logical variable, value
+        </td>
+    </tr>
+    <tr>
+        <td>
+        1
+        </td>
+        <td>
+        All [predicate]{Predicate}(/wiki/predicate) and [constraint]{Constraint}(/wiki/constraint) calls
+        </td>
+    </tr>
+    <tr>
+        <td>
+        2
+        </td>
+        <td>
+        Choices, unify op.
+        </td>
+    </tr>
+    <tr>
+        <td>
+        3
+        </td>
+        <td>
+        Assertion, imaging, naming
+        </td>
+    </tr>
+    <tr>
+        <td>
+        4
+        </td>
+        <td>
+        [Implication]{Implication}(/wiki/implication)
+        </td>
+    </tr>
+    <tr>
+        <td>
+        5
+        </td>
+        <td>
+        All operations with leading sign (predicate, constraint declarations, quantified expressions, headers etc)
+        </td>
+    </tr>
+</table>

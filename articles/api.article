@@ -1,0 +1,11 @@
+API
+*---*
+Laurelang API is needed to make it much more extensible and embeddable.
+*---*
+
+# Embedding C
+
+Embedded shared file should obtain `on_use(laure_session_t*)` symbol.
+
+
+`0` must be returned from it's call, otherwise consulting of CLE will be considered as failed.

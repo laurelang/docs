@@ -1,0 +1,44 @@
+Inferation
+*---*
+**Inferation** (or **Inferation**) is a logical operation which is needed to declare type of data stored in logical variable.
+*---*
+For example, when we want to create an integer, in laurelang we write:
+
+```
+x ~ int
+```
+
+Now `X` is any integer. Inferation is required before assigning logic variable to some specific value.
+
+Type of data (hint) is applied automatically in predicate call or declaration. In declaration, Inferation and assertion are combined into single expression:
+
+```
+int x = 7298
+```
+
+Inferation supports nested instances. For example, its easy to declare an array.
+
+```
+arr ~ int[]
+```
+
+Inferation is logical operation so you can use it, for instance, to check the data type of logical variable.
+
+```
+x + 39 = 42;
+x ~ int;
+x ~ char -> fail();
+```
+
+Nested checks can be also done:
+
+```
+int[] ~ int[];
+arr ~ int[];
+arr2 ~ arr[];
+
+arr2 ~ int[][];
+arr2[] ~ arr[][];
+```
+
+Also in inferation [predicate primitives](/wiki/pred_primitives) can be used as a data type.

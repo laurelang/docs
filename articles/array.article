@@ -1,0 +1,58 @@
+Array
+*---*
+Arrays in laurelang.
+*---*
+Array utilities are available within `@/array` package.
+
+# each
+
+```
+each of arr = el
+```
+
+`each` predicate is mainly used as an array enumerator; in example above, choicepoint is created and **el** may be equal to each element of array.
+
+Also you may use it to check that all elements of array are equal to some instantiated value:
+
+```
+int c = 1;
+int[] arr = [c, c, c] -> each(arr) = c;
+```
+
+Or generate one:
+
+```
+int c = 1;
+arr ~ int[];
+each of arr = c;
+```
+
+```
+arr = []; [1]; [1, 1]; ...
+```
+
+# by_idx
+
+```
+arr by_idx idx = el
+```
+
+`by_idx` predicate states that array has some element by some index.
+
+```
+int[] arr = [1, 2, 3];
+el ~ int;
+arr by_idx 2 = el -> el = 3;
+```
+
+`by_idx` can be written in traditional syntax:
+
+```
+arr[idx] = el
+```
+
+# length
+
+```
+length of arr = L
+```

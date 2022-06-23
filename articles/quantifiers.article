@@ -1,0 +1,28 @@
+Quantifiers
+*---*
+Quantifiers in laurelang.<br>
+Quantified expression belong to group of expressions with **leading sign**.
+*---*
+Common quantifications types are existential and universal quantifications.
+
+# Exists (**∃**)
+
+In laurelang, existential quantification can be written as `exists` or `e`:
+
+```
+&exists X {
+    X cons 3;
+}
+```
+
+# All (**∀**)
+
+Universal quantification can be written as `all` or `a`:
+
+```
+&all X {
+    X = 10;
+}
+```
+
+With universal quantifier value non-ambiguativeness can be checked.

@@ -1,0 +1,39 @@
+Components
+*---*
+Instance components.
+*---*
+
+# Name
+
+Instance has a name to be found in scope with. Instance name must not start with a digit.
+
+## Anonymous instance
+
+You can make instance anonymous calling it `_`, anonymous instance won't be stored in scope and will be completely ignored in future reasoning.
+
+# Derivation
+
+Instance may have a link to the other instance it was derived from.<br>
+This is needed to check instance derivation performing infer operation on known instances.
+
+# Locked
+
+Instance has a field which says if instance is locked or not.<br>
+Locked field is needed to protect instances from getting instantiated.
+
+You can lock/unlock instances in repl using [commands]{Commands}(/wiki/commands): `.lock {name}`, `.unlock {name}`
+
+# Representation
+
+Instance has a representation algorythm.<br>
+Representation should idealogically be lossless, so translator can restore all the information the instance from it's representation.
+
+# Documentation
+
+Instance may have documentation.
+
+It's creation is first-declaration-specific. For example, [for predicates]{Predicate -> Add doc}(/wiki/predicate#Add%20doc), documentation is read from all the commentaries before the header.
+
+# Image
+
+Instance has an image which may be integer, char, array, predicate, constraint, structure or custom image.

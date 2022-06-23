@@ -1,0 +1,30 @@
+Choice
+*---*
+Choice expression.
+```exp1 | exp2```
+*---*
+Choice expression creates individual choicepoint.
+
+Example 1:
+
+```
+{
+    message("Case 1");
+    x = 10;
+    y = 4;
+} | {
+    message("Case 2");
+    x = 11;
+    y = 3;
+}
+z = x + y;
+```
+
+Example 2:
+
+```
+: ?fibr(int, int) -> int.
+?fibr(x, y) -> z {
+    z = x + y | fib(y, x + y);
+}
+```

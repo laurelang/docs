@@ -1,0 +1,25 @@
+Predicate Upload
+*---*
+Laurelang has a feature of uploading predicates into its enviroment from C code.
+*---*
+To upload a predicate function `laure_api_add_predicate` is used.
+
+
+It has 8 arguments:
+
+
+* `session` - you need to pass current laure session. It should be accessible within `on_incude` handler.
+
+* `name` - name of predicate you are uploading, will appear in scope
+
+* `callable` - function symbol (takes `preddata` and `control_ctx` pointers, returns qresp).
+
+* `argc`
+
+* `arg_hints` - argument hints in format: Name:Universum splitted by space ` `.
+
+* `response_hint` - hint for response (or null)
+
+* `is_constraint` - is the thing you are uploading should behave as a constraint?
+
+* `doc` - docstring for your predicate

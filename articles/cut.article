@@ -1,0 +1,23 @@
+Cut
+*---*
+**Cut** is a predicate which always succeeds and cannot be backtracked.  
+Other predicate variations won't be runned.
+*---*
+```
+!
+```
+
+Cut can be used in the implication:
+
+```
+: ?example(int) -> int.
+?example(x) -> 5 when x > 10, x cons 18, x > 12 -> !.
+?example(x) -> 42.
+```
+
+Solutions we get:
+
+```
+examples(12) = x;
+x = 5.
+```

@@ -1,0 +1,78 @@
+Weighted search
+*---*
+There are two types of reasoning or search in laurelang: strict logical and weight extended.
+Weight extended search is needed when exact criteria of the query is unknown and the goal is to find the variety of the most optimal solutions.
+*---*
+
+# How to use?
+
+Just add the `-ws` option running laurelang interpreter or toggle ws mode with `.ws` REPL command.
+
+# Dynamic base changing
+
+There are some base functions for weighted search and whats important they can be changed dynamicly via command expression.
+
+Example:
+
+```
+!ws_base=sigmoid
+```
+
+Here is the list of bases available:
+
+```
+sigmoid (default)
+constant
+hyperbola
+limit{n}
+```
+
+`limit{n}` base is quite different from others: it sets the limit to maximum `n` transistions so if it will be exceeded the final accuracy will be set to 0.
+
+# How it works
+
+Firstly, we need to choose a base function. It should be a monotonous descending function.
+
+We will use $f(i) = \frac{1}{1 + e^{ik}}$.
+
+
+Where $k$ is a constant scaling coefficient.
+
+
+All the transistions made will be written in decimal values array. Each value is a number from 0 to 1. The value will be not an integer in case there was a predicate call there which led to its own accuracy calculated.
+
+
+As an example $w_{n}$ input array will be:
+
+```
+w = [1, 0, 0.55, 1, 1]
+```
+
+
+The final accuracy is calculated as a fraction of true transistions to all transistions:
+
+
+$\huge a(w\_{n}) = \frac{\sum_{i=1}^{n} w\_{i}\times f(i)}{ F }$
+
+
+where F is sum of whole transistions from $f$.
+
+
+## Base definitions
+
+Sigmoid:
+
+
+$f(i) = \frac{1}{1 + e^{ik}}$
+
+
+Constant:
+
+
+$f(i) = k$
+
+
+Hyperbola:
+
+
+$f(i) = \frac{1}{ki+1}+1$

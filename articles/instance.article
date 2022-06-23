@@ -1,0 +1,116 @@
+Instance
+*---*
+Instances in laurelang.
+*---*
+
+# Instance hierarchy
+
+See [Components]{Components}(/wiki/components).
+
+# Infer instance
+
+> When you infer instance you declare that it belongs to some particular universum.
+
+```
+A ~ int;
+```
+
+Also, instance can be inferred to the nested instance, thats how arrays are created:
+
+```
+arr ~ int[][];
+```
+
+This means that a is a subset of int. It is of importance to say that infer operation never creates a choicepoint.
+
+# Assert instance
+
+```
+A = 2;
+```
+
+New instance cannot be asserted without being inferred. For convenience, shorcut exists:
+
+```
+int A = 2;
+```
+
+Asserting instance may create a choicepoint.
+
+**Interesting**: operation `A = A` does the same thing as `A?` (unify) operation.
+
+You should understand the difference between assert operation and predicate call with response argument:
+
+```
+a = 1 + 2;
+```
+
+\- is not assertion but the predicate call.
+
+
+## Asserting to [choice]{Choice}(/wiki/choice)
+
+When assert operation is combined with choice, it it important to mention that assert operation has higher priority than choice, assertion to choice is unpacked into multiple assertions, to each member of the choice.<br>
+If you want to use assertions in your choice expression consider sets ([example here]{Choice}(/wiki/choice)).
+
+# Locking/unlocking
+
+Some instances are predefined to be locked, for e.g. `int`. This is needed to avoid their instantiation (which becomes forbidden when the instance is locked).
+
+Instances in global scope can be locked and unlocked manually using [commands]{Commands}(/wiki/commands).
+
+# Instance representations
+
+Instance string representation can be reached with `repr/1` predicate, all representations are planned to be convertable back to instances (except logical), but the hinting is required.
+
+```
+int A = 42;
+repr(A) = "42";
+// back
+B ~ int;
+repr(B) = "42" -> B = 42;
+```
+
+# Unify instance
+
+You may force instance to unify.
+
+```
+A ~ int;
+A?;
+```
+
+# Anonymous instance
+
+Instance is anonymous when you call it `_`. Easy explanation:
+
+Imagine you have a `loves` predicate (if you are unable to imagine see [this example]{kb_prolog.le}(https://github.com/timoniq/laurelang/blob/main/examples/kb_prolog.le)).
+
+If you want to state that somebody loves himself, you can write:
+
+```
+| loves(x, x)
+  false
+```
+
+Unfortunately, nobody does.
+
+If you want to state that somebody loves somebody and no matter who it is you can write:
+
+```
+| loves(_, _)
+  true
+```
+
+That's the difference.
+
+Other examples:
+
+```
+// do `mia` love somebody (should fail)
+loves("mia", _)
+-> fail();
+
+// do somebody jealous (see example) to "vincent" (should succeed)
+jealous(_, "vincent");
+```

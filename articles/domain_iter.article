@@ -1,0 +1,40 @@
+Domain iteration
+*---*
+Explanations of how domains of different images are instantiated.
+*---*
+
+# int
+
+Domains with no bounds (-infinity to infinity) are iterated regarding to this formula:
+
+
+<img src="https://i.ibb.co/kSCkL7b/latex5.png">
+
+
+In laurelang it can be written as:
+
+```
+: ?nz(int) -> int.
+?nz(0) -> 0.
+?nz(1) -> 1.
+?nz(i) -> (i / 2) * -1  { ((-1) pow i) > 0 }
+?nz(i) -> (i + 1) / 2.
+```
+
+# char
+
+Char set is not iterated because it is useless, if you want to iterate over chars create a charset:
+
+```
+char charset = ?"abcdef123";
+ch = charset;
+```
+
+# array
+
+Firstly choicepoint is created to instantiate length, then choicepoint is created on each ambigious element.
+
+```
+arr ~ charset[];
+arr?;
+```

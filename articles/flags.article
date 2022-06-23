@@ -1,0 +1,32 @@
+Flags
+*---*
+Run command `.flags` to see all available flags.
+*---*
+
+# Common flags
+
+`-norepl` - laurelang won't run REPL.
+
+`-q {query}` - laurelang will run query after consulting bases, also may be combined with `-signal` flag in order to make program return error code if query fails.
+
+`-clean` - do not load std library
+
+`--version` - show version
+
+`--library {path}` - manually set library path
+
+# Dflags
+
+Dflag (dynamic flag) needed to setup CLE. Let's consider test suite as an example:
+
+If you want to skip some tests you use `skip` dflag:
+
+```
+-D skip=test_skipped1,test_skipped2
+```
+
+You can pass a plenty of dflags:
+
+```
+-D flag1=123 -D flag2=abc
+```

@@ -1,0 +1,29 @@
+Predicate primitives
+*---*
+Predicate primitives are declarations of predicate header appropriate to be stored in logical variable.
+*---*
+
+# Constraint
+
+Predicate can be rejected due to disparity to primitive.
+
+```
+pred ~ (?(int) -> int);
+pred = prime | fac;
+(pred = +) -> fail();
+```
+
+# Solve
+
+Unify operation applied on predicate primitive will try to find appropriate predicate in the current and global scopes.
+
+```
+pred ~ (?(int, int) -> int);
+pred?;
+```
+
+Type in predicate primitive may be anonymous.
+
+```
+prim ~ (?(int, _) -> _);
+```

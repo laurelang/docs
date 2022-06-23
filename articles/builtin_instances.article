@@ -1,0 +1,50 @@
+Builtin Instances
+*---*
+Laurelang has some builtin instances. Here they are declared.
+*---*
+# Integer (`int`)
+
+Integer. Supports arbitrary large values.
+
+```
+a ~ int, a = -23472147284798218748729
+```
+
+Constraints can be used to contract integer range.
+
+```
+a ~ int, a > 3, a <eq 10
+```
+
+Now `a` is represented as `<3..10`. Such representation of a domain can be easily used to partially instantiate the instance:
+
+```
+int a = <3..10
+```
+
+The two expression above are equivalent.
+
+# Character (`char`)
+
+Utf-8 character.
+
+Character can be assigned to a single character (`c1`) or a character set (`c2`):
+
+```
+char c1 = 'Y';
+char c2 = "WASD";
+```
+
+# String (`string`)
+
+String. An array of `char`acters.
+
+```
+s ~ string
+```
+
+String can be instantiated like this:
+
+```
+string s = "Qwerty :)"
+```
